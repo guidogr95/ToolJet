@@ -10,9 +10,10 @@ COPY ./package.json ./package.json
 
 # Fix for heap limit allocation issue
 ENV NODE_OPTIONS="--max-old-space-size=4096"
+ENV NODE_ENV=development 
 
 # Build plugins
 COPY ./plugins/package.json ./plugins/package-lock.json ./plugins/
-ENV NODE_ENV=development
+ENV NODE_ENV=development 
 RUN npm --prefix plugins install
 COPY ./plugins/ ./plugins/

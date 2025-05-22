@@ -8,7 +8,7 @@
     "create:client": "node create-client-entry",
     "create:server": "node create-server-entry",
     "create:operations": "node create-operations-file",
-    "build:server": "rimraf dist/ && tsc -b",
+    "build:server": "rimraf dist/ && npx tsc -b",
     "start": "tsc -b --watch",
     "build": "npm run create:client && npm run create:server && npm run build:packages && npm run build:server && npm run create:operations",
     "prebuild:packages": "npm run clean:packages",

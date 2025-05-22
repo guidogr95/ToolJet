@@ -30,7 +30,6 @@ services:
       - NODE_ENV=development
       - SERVE_CLIENT=false
     command: npm run --prefix frontend start
-
   server:
     build:
       context: ./
@@ -40,7 +39,6 @@ services:
     platform: linux/x86_64
     depends_on:
       - postgres
-      - redis
     volumes:
       - ./server:/app/server:delegated
       - ./plugins:/app/plugins
@@ -53,12 +51,6 @@ services:
       - SERVE_CLIENT=false
       - FORCE_COLOR=1
     command: npm run --prefix server start:dev
-
-  redis:
-    image: redis:6
-    restart: always
-    ports:
-      - "6379:6379"
 
   postgrest:
     container_name: postgrest
